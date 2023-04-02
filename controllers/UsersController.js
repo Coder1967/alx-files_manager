@@ -1,8 +1,8 @@
 const sha1 = require('sha1');
 const { ObjectID } = require('mongodb');
 const Queue = require('bull');
-const {dbClient} = require('../utils/db');
-const {redisClient} = require('../utils/redis');
+const { dbClient } = require('../utils/db');
+const { redisClient } = require('../utils/redis');
 
 const userQueue = new Queue('userQueue', 'redis://127.0.0.1:6379');
 
