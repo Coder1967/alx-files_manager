@@ -1,8 +1,8 @@
-import sha1 from 'sha1';
-import { ObjectID } from 'mongodb';
-import Queue from 'bull';
-import dbClient from '../utils/db';
-import redisClient from '../utils/redis';
+const sha1 = require('sha1');
+const { ObjectID } = require('mongodb');
+const Queue = require('bull');
+const {dbClient} = require('../utils/db');
+const {redisClient} = require('../utils/redis');
 
 const userQueue = new Queue('userQueue', 'redis://127.0.0.1:6379');
 
@@ -54,7 +54,6 @@ class UsersController {
         }
       });
     } else {
-      console.log('Hupatikani!');
       response.status(401).json({ error: 'Unauthorized' });
     }
   }
